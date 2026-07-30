@@ -77,6 +77,7 @@ if __name__ == "__main__":
 
 ## 실행 결과
 <img width="778" height="314" alt="스크린샷 2026-07-30 120704" src="https://github.com/user-attachments/assets/9cd7e578-583a-4ac7-80b6-40682ac95af5" />
+
 짧은 간격으로 여러 번 요청해도 쿨다운에 막히고, 3번 틀리면 잠기는 걸 확인했다.
 
 ## 트러블슈팅
