@@ -30,25 +30,26 @@ Uber 사고를 5단계로 분석하고, 그중 3단계에 실제 방어 로직�
 | 4. 세션 토큰 탈취 | 토큰이 발급 환경에 안 묶임 | `auth-server/app.py` | ✅ 차단 확인 |
 | 5. 내부 확산 | 암묵적 전면 신뢰 | 통합 테스트로 증명 | ✅ 확인 완료 |
 
-자세한 공격 체인 분석은 [`Day-01.md`](./Day-01.md) 참고.
+자세한 공격 체인 분석은 [`daily-log/Day-01.md`](./daily-log/Day-01.md) 참고.
 
 ## 폴더 구조
 
 ```
 uber-identity-zero-trust-hardening/
-├── Day-01.md ~ Day-07.md      # 일자별 작업 기록
+├── daily-log/
+│   └── Day-01.md ~ Day-07.md   # 일자별 작업 기록
 ├── docs/
 │   └── 01-uber-attack-analysis.md
 ├── auth-server/
-│   ├── mfa_policy.py          # MFA Fatigue 방어 (쿨다운 + 계정 잠금)
-│   └── app.py                 # 세션 토큰 IP/기기 바인딩
+│   ├── mfa_policy.py           # MFA Fatigue 방어 (쿨다운 + 계정 잠금)
+│   └── app.py                  # 세션 토큰 IP/기기 바인딩
 ├── envoy-proxy/
-│   └── envoy.yaml              # Device Posture(신뢰 헤더) 검증
+│   └── envoy.yaml               # Device Posture(신뢰 헤더) 검증
 ├── attack-simulation/
 │   ├── 01_mfa_fatigue_attack.py
 │   └── 02_stolen_token_access.py
-├── run_integration_test.py     # 전체 방어 로직 통합 테스트
-└── test_results.log            # 통합 테스트 실행 로그
+├── run_integration_test.py      # 전체 방어 로직 통합 테스트
+└── test_results.log             # 통합 테스트 실행 로그
 ```
 
 ## 핵심 방어 로직 요약
@@ -77,13 +78,13 @@ Stolen Token Defense (Day 3): PASS
 
 ## 일자별 작업 기록
 
-- [Day 1 — 프로젝트 설명 및 공격 체인 분석](./Day-01.md)
-- [Day 2 — MFA Fatigue 방어 로직](./Day-02.md)
-- [Day 3 — 세션 토큰 바인딩](./Day-03.md)
-- [Day 4 — Envoy Device Posture 검증](./Day-04.md)
-- [Day 5 — 공격 시뮬레이션](./Day-05.md)
-- [Day 6 — 통합 테스트](./Day-06.md)
-- [Day 7 — 마무리](./Day-07.md)
+- [Day 1 — 프로젝트 설명 및 공격 체인 분석](./daily-log/Day-01.md)
+- [Day 2 — MFA Fatigue 방어 로직](./daily-log/Day-02.md)
+- [Day 3 — 세션 토큰 바인딩](./daily-log/Day-03.md)
+- [Day 4 — Envoy Device Posture 검증](./daily-log/Day-04.md)
+- [Day 5 — 공격 시뮬레이션](./daily-log/Day-05.md)
+- [Day 6 — 통합 테스트](./daily-log/Day-06.md)
+- [Day 7 — 마무리](./daily-log/Day-07.md)
 
 ## 배운 점
 
@@ -93,6 +94,11 @@ Stolen Token Defense (Day 3): PASS
   최소 권한)이 실제로 어떤 형태의 코드가 되는지 체감할 수 있었다.
 - YAML 설정 파일의 사소한 오타(콜론 누락, 필드명 오타) 하나가 전체 시스템을 멈추게 한다는 걸
   Envoy 실습에서 직접 겪으며, 로그를 읽고 원인을 좁혀가는 디버깅 과정을 연습했다.
+
+## 참고
+
+이 문서는 공개된 사고 분석 자료를 바탕으로 재구성했으며, 특정 개인/조직을 비방할 목적이 없다.
+목적은 순수하게 방어 아키텍처를 설계하고 학습하는 것이다.
 
 ## 참고
 
