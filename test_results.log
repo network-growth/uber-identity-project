@@ -1,0 +1,28 @@
+Integration Test Run - Sat Aug  8 11:05:04 2026
+==================================================
+
+=== TEST 1: MFA Fatigue Attack (Day 2 defense) ===
+Attempt 1: Login request sent. Please approve on your phone.
+Attempt 2: Too soon to retry. Wait 29 more seconds.
+Attempt 3: Too soon to retry. Wait 29 more seconds.
+Attempt 4: Too soon to retry. Wait 29 more seconds.
+Attempt 5: Too soon to retry. Wait 29 more seconds.
+Attempt 6: Too soon to retry. Wait 29 more seconds.
+Attempt 7: Too soon to retry. Wait 29 more seconds.
+Attempt 8: Too soon to retry. Wait 29 more seconds.
+Attempt 9: Too soon to retry. Wait 29 more seconds.
+Attempt 10: Too soon to retry. Wait 29 more seconds.
+Summary: 9/10 blocked, 1/10 push notifications actually sent
+TEST 1 RESULT: PASSED
+
+=== TEST 2: Stolen Session Token (Day 3 defense) ===
+Legit session token issued: WW1Aj93O
+Attacker tries the stolen token from a different IP/device: IP mismatch. This token was issued on a different network. Access denied.
+TEST 2 RESULT: PASSED
+
+=== FINAL SUMMARY ===
+MFA Fatigue Defense (Day 2): PASS
+Stolen Token Defense (Day 3): PASS
+
+Note: Envoy Device Posture check (Day 4) was tested manually with
+curl and confirmed working. sedd Day-04.md for that evidence.
